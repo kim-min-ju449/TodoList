@@ -3,14 +3,16 @@ import {
     FaRegCheckSquare,
     FaRegSquare
 } from 'react-icons/fa'
+import cn from 'classnames';
 import './TodoListItem.css';
 
-const TodoListItem = () =>{
+const TodoListItem = ({todo}) =>{
+    const {text, checked} =todo;
     return(
         <div className="TodoListItem">
-            <div className="checkbox">
-                <FaRegSquare/>
-                <div className="text">할일</div>
+            <div className={cn('checkbox', {checked})}>
+                {checked ?<FaRegSquare/> : <FaRegCheckSquare/>}
+                <div className="text">{text}</div>
             </div>
             <div className="remove">
                 <FaMinusCircle/>
